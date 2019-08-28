@@ -40,7 +40,7 @@ methods ( Access = 'protected' )
     channel = getChannelInFrequency ( this, impulseResponse, samplingTimes, ...
                                       receivedSignal, referenceSignal )
     noiseVariancePerSymbol = ...
-        this.calculateNoiseVariancePerSymbol( coefficients, noiseVariance );                                     
+        calculateNoiseVariancePerSymbol( this, coefficients, noiseVariance );                                    
     
 end
 

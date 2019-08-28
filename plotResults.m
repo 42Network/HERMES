@@ -36,20 +36,20 @@ addHermesPaths( resultsDir );
 
 %% ------ Read all Parameter Files Stored in Results Directory -------
 
-    parameterFiles = dir( resultsDir );
-    parameterFiles = parameterFiles( 3:end, :);
+    parameterFiles = dir( [ resultsDir filesep '*.m' ] );
+    %parameterFiles = parameterFiles( 3:end, :);
     numberOfFiles = size( parameterFiles, 1 );
     
     for file = 1 : numberOfFiles
         currentParamFile = [ %resultsDir, filesep, ...
                              strtrim( parameterFiles(file, :).name )];
-       if file == 4
-            load( currentParamFile );
-        else
+       %if file == 4
+       %     load( currentParamFile );
+       % else
             try 
                 run( currentParamFile );
             end
-        end
+       % end
       
     end
 
@@ -104,6 +104,7 @@ switch modemParameters.TECHNOLOGY
         transportBlockSize = ...
             lookupTables.modem.lte.getTransportBlockSize( transportBlockSizeIndex , numOfPrbs );
         BLOCK_SIZE = num2str( transportBlockSize );
+        waveformType =enum.modem.fiveG.Waveform.OFDM; % Kludge - all LTE is OFDM?
         
     case enum.Technology.FIVEG
         TECHNOLOGYAUX = '5G';
@@ -149,7 +150,8 @@ end
 
 
 %% ------------ PLOT BER PERFOMANCE --------------
-%load('statistics');
+statsFile = dir([resultsDir filesep 'statistics_*.mat']);
+load(statsFile.name);
 berPerformance = figure;
 mainBerPlot = semilogy(statistics.snrVector, statistics.berMean);
 hold on;
@@ -188,7 +190,7 @@ confInterval = semilogy(statistics.snrVector, lowMargin, 'r:', ...
 xlabel('E_B/N_0');
 ylabel('BLER');
 if SETTINGS.CHANNEL.MULTIPATH.MODEL == enum.channel.MultipathModel.COST259
-    titleLabel = ['BER Vs E_b/N_0, Channel Type: ' NOISE ' + ' MULTIPATH ' ' TYPECHANNEL ', '  ...
+    titleLabel = ['BLER Vs E_b/N_0, Channel Type: ' NOISE ' + ' MULTIPATH ' ' TYPECHANNEL ', '  ...
                   'Technology: ' TECHNOLOGYAUX ];
 else
     titleLabel = ['BER Vs E_b/N_0, Channel Type: ' NOISE ' + ' MULTIPATH ', '  ...

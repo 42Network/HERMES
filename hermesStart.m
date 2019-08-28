@@ -101,9 +101,14 @@ end
 % move all setting variables to a single variable
 for paramSet = 1 : length( paramVars )
     evalStr = [ 'SETTINGS.' paramVars{paramSet} '=' paramVars{paramSet} ';'];
+    fprintf('evalStr %s\n', evalStr);
     eval(evalStr);
 end
 
+% Put resultsDirectory in SETTINGS
+evalStr = [ 'SETTINGS.resultsDirectory=''' resultsDirectory ''';'];
+fprintf('evalStr %s\n', evalStr);
+eval(evalStr);
 
 % Initialize seed
 if ( ~exist('seed', 'var') )

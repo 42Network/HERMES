@@ -121,13 +121,13 @@ methods ( Access = 'protected' )
     [ signalOut, equalizerCoefficients ] = equalize ( this, signalIn, channel, ...
                                                       noiseVariance )
     
-    noiseVariance = this.estimateNoise( noiseVariance, equalizerCoefficients );
+    noiseVariance = estimateNoise( this, noiseVariance, equalizerCoefficients );
     
 end
 
 methods( Abstract,  Access = 'protected' )
     noiseVariancePerSymbol = ...
-        this.calculateNoiseVariancePerSymbol( coefficients, noiseVariance );
+        calculateNoiseVariancePerSymbol( this, coefficients, noiseVariance );
 end
 end
 

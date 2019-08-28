@@ -142,7 +142,14 @@ while ~metStopCriteria
                                                           mainTxSignal );
 
                 %%
-                
+                outputFrameFilename = ['d' num2str(this.currentDrop,'%02d') '_f' num2str(frameNumber,'%02d') '_s' num2str(snrIndex,'%02d')];
+                outputPath = [ this.resultsDirectory, filesep, 'outputFrames' ];
+                if ~exist(outputPath, 'dir')
+                    mkdir(outputPath)
+                end
+                outputPathName = [ outputPath, filesep, outputFrameFilename ];
+                fprintf('frame pathname %s\n', outputPathName);
+                save(outputPathName, 'rxSignal');
                 
                 % receive and demodulate signal
                 detectedBits = rxModem.receiveFrame( rxSignal, channel );

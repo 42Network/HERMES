@@ -96,7 +96,7 @@ SETTINGS.SCENARIO.MODEM{2}.NODE = 2;
 % define radio access technology for each modem
 % specific technology parameters are given in specific technology
 % configuration file
-SETTINGS.SCENARIO.MODEM{1}.TECHNOLOGY = enum.Technology.FIVEG;
+SETTINGS.SCENARIO.MODEM{1}.TECHNOLOGY = enum.Technology.LTE_OFDMA;
 SETTINGS.SCENARIO.MODEM{2}.TECHNOLOGY = ...
 SETTINGS.SCENARIO.MODEM{1}.TECHNOLOGY;
 

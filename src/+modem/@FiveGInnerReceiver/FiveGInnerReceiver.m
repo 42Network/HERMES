@@ -75,7 +75,7 @@ methods ( Access = 'protected' )
                                       receivedSignal, referenceSignal )
                                   
     noiseVariancePerSymbol = ...
-        this.calculateNoiseVariancePerSymbol( coefficients, noiseVariance );                                  
+        calculateNoiseVariancePerSymbol( this, coefficients, noiseVariance );                                  
 end
 
 end

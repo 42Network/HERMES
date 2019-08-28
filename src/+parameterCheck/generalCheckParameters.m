@@ -183,7 +183,9 @@ parameters.addParameter( 'DISPLAY_INTERVAL', 'double', 'default', 0.001, ...
 parameters.addParameter( 'currentParamFile', 'char', ...
                          enum.parameterCheck.Property.IS_VECTOR );     
                      
-
+parameters.addParameter( 'resultsDirectory', 'char', ...
+                         enum.parameterCheck.Property.IS_VECTOR );   
+                     
 %% verify syntax                     
 % verify if any invalid field is listed in parameters
 assert( ~parameters.anyInvalidField( settings ) );

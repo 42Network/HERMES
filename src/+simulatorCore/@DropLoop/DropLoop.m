@@ -83,6 +83,7 @@ classdef DropLoop < handle
         metStoppingCriteriaPerSNR;
         showProgress;
         displayInterval;
+        resultsDirectory;
 
     end
 
@@ -117,6 +118,8 @@ classdef DropLoop < handle
             this.showProgress = SETTINGS.SHOW_PROGRESS;
             
             this.displayInterval = SETTINGS.DISPLAY_INTERVAL;
+            
+            this.resultsDirectory = SETTINGS.resultsDirectory;
         end
 
         % method runLoop
