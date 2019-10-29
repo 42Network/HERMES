@@ -30,4 +30,4 @@ copyfile( 'RandomNumberGeneratorSeeds.mat', deployDir );
 buildMexFiles( );
 
 % Compile hermesStart executable
-system( [ '/Applications/MATLAB_R2019a.app/bin/mcc -d ' deployDir ' -R -singleCompThread -a src -m -v hermesStart.m' ] );
+system( [ matlabroot '/bin/mcc -d ' deployDir ' -R -singleCompThread -a src -m -v hermesStart.m' ] );

@@ -31,11 +31,11 @@ void mexFunction(int nlhs, mxArray *plhs[],
     double *trellisNextState = mxGetPr( prhs [ 2 ] );	/* Matrix with Transition to Next States */
     int numOfStates = mxGetM(prhs [ 2 ] );	
     /* Third Input Argument: Trellis Next Output */
-    double *trellisNextOutput = mxGetPr( prhs [ 3 ] );	/* Matrix with Trellis Output Values. N x M
+    double *trellisNextOutput = mxGetPr( prhs [ 3 ] );	/* Matrix with Trellis Output Values. N x M */
     
-    /* ---------------------- Output Declaration -------------------------------------
-   First Output Argument - Decoded Bits Vector:  
-    */
+    /* ---------------------- Output Declaration ------------------------------------- */
+    /* First Output Argument - Decoded Bits Vector:   */
+    
     plhs [ 0 ] = mxCreateDoubleMatrix( 1, arraySize, mxREAL );
 	double *encodedArray = mxGetPr(plhs[0]);
     

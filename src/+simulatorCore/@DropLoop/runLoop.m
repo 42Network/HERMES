@@ -149,7 +149,7 @@ while ~metStopCriteria
                 end
                 outputPathName = [ outputPath, filesep, outputFrameFilename ];
                 fprintf('frame pathname %s\n', outputPathName);
-                save(outputPathName, 'rxSignal');
+                %save(outputPathName, 'rxSignal');
                 
                 % receive and demodulate signal
                 detectedBits = rxModem.receiveFrame( rxSignal, channel );

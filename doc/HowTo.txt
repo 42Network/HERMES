@@ -20,6 +20,7 @@ HISTORY
 Version		Date		Author 			Description		
 v1.0    15 - April - 2015       Erika Almeida           Document created     
 v2.0    22 - February - 2016    Andre Noll Barreto      Updated
+v2.1    28 - October - 2019     Nathan Ellsworth        UT Dallas Notes
 
 ---------------------------------------------------------------------
 SECTION 1 - Version Description
@@ -201,3 +202,24 @@ rate at the end of the simulation
 SNR level
 + blerErrorMargin < 1 x SNR values double >: error margin of BLER, per 
 SNR level
+
+
+
+UT Dallas Notes
+
+Using Matlab 2019b
+
+* Needed Add-Ons
+Communications Toolbox 
+    DSP System Toolbox 
+    Signal Processing Toolbox 
+
+* Update path to mcc compiler in compileHermes.m to current installed Matlab version
+system( [ '/Applications/MATLAB_R2019b.app/bin/mcc -d ' deployDir ' -R -singleCompThread -a src -m -v hermesStart.m' ] );
+
+* Error: xcrun: error: SDK "macosx10.14.6" cannot be located 
+If 'xcode-select -print-path' shows '/Library/Developer/CommandLineTools' then run
+   sudo xcode-select -s /Applications/Xcode.app
+so that compileHermes doesn't give warnings
+
+* 

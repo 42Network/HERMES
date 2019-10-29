@@ -176,6 +176,7 @@ legendLabel = [ 'HERMES V1.0 ' MODULATION ' ' WAVEFORM];
 legend( [ mainBerPlot confInterval( 1 ) ] , legendLabel, 'Confidence Interval');
 grid on;
 
+saveas(gcf, [ resultsDir, filesep, 'ber' ], 'mfig');
 %% ---------- PLOT BLER PERFORMANCE --------------
 berPerformance = figure;
 mainBlerPlot = semilogy(statistics.snrVector, statistics.blerMean);
@@ -201,3 +202,5 @@ legendLabel = [ 'HERMES V1.0 ' MODULATION ' ' WAVEFORM ', Block Size:' BLOCK_SIZ
 legend( [ mainBlerPlot confInterval( 1 ) ] , legendLabel, 'Confidence Interval', ...
     'Location', 'SouthWest');
 grid on;
+
+saveas(gcf, [ resultsDir, filesep, 'bler' ], 'mfig');

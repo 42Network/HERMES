@@ -1,7 +1,9 @@
 /deployed/
 /results/
+**/*.DS_Store
 .DS_Store
 *~
 *.mexmaci64
-.DS_Store
-*.mexmaci64
+*.mexw64
+
+

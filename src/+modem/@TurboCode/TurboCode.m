@@ -149,6 +149,7 @@ classdef TurboCode < modem.ChannelCode
         decodedArray = decode( this, llrVector )
         setInterleaver( this, interleaver, deinterleaver )
         createInterleaver( this, packetSize )
+        reliability = sovaDecoderMex( this, outputMetric, extrinsicMetricsAux, nextStates, nextOutput);
     end   
 end
 

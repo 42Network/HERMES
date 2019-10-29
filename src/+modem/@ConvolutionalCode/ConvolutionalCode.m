@@ -79,6 +79,7 @@ classdef ConvolutionalCode < modem.ChannelCode
     end
     methods ( Access = 'protected' )
         setTrellis( this, codeGenerator, feedback );
+        encodedPacket  = convEncoderMex(this, bits, nextStates , nextOutputs);
         decodedArray = viterbiDecoderMex(this, outputMetric, nextStates, nextOutput);
     end
     

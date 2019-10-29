@@ -37,12 +37,12 @@ void mexFunction(int nlhs, mxArray *plhs[],
     int numOfStates = mxGetM(prhs [ 2 ] );				/* Number of Shift Registers Memory States (2^S: S is the number of Shift Registers) */
     int numOfInputSymbols = mxGetN( prhs[ 2 ] );		/* Number of Possible Input Symbols (2^P: P is the number of Input Bits) */
     /* Third Input Argument */
-    double *trellisNextOutput = mxGetPr( prhs [ 3 ] );	/* Matrix with Trellis Output Values. N x M
+    double *trellisNextOutput = mxGetPr( prhs [ 3 ] );	/* Matrix with Trellis Output Values. N x M */
     
-    /* ---------------------- Output Declaration -------------------------------------
+    /* ---------------------- Output Declaration ------------------------------------- */
     
-    First Output Argument - Decoded Bits Vector:  
-    */
+    /* First Output Argument - Decoded Bits Vector:   */
+    
     plhs [ 0 ] = mxCreateDoubleMatrix( 1, trellisDepth, mxREAL );
 	double *decodedInput = mxGetPr(plhs[0]);
     

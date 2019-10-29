@@ -30,7 +30,7 @@ function statistics = hermesMain( SETTINGS, rnd )
 parameterCheck.generalCheckParameters( SETTINGS );
 
 % creates scenario object
-myscenario = scenario.Scenario( SETTINGS, rnd );
+scenario = scenario.Scenario( SETTINGS, rnd );
 
 % creates the statistic object
 statistics = simulatorCore.Statistics( SETTINGS );
@@ -39,7 +39,7 @@ statistics = simulatorCore.Statistics( SETTINGS );
 simulationLoop = simulatorCore.DropLoop( SETTINGS );
 
 % runs simulation loop
-simulationLoop.runLoop( statistics, myscenario );
+simulationLoop.runLoop( statistics, scenario );
 
 end
 
